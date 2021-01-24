@@ -13,6 +13,7 @@ resource "aws_instance" "beeper" {
 data "template_file" "user_data" {
   template = file("provision.tpl")
   vars = {
+    "beeper_dns" = var.tld
     "ssh_public_key" = var.ssh_public_key
   }
 }
