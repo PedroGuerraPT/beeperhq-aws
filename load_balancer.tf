@@ -15,7 +15,7 @@ resource "aws_elb" "beeper-elb" {
     ssl_certificate_id = aws_acm_certificate.elb_cert.id
   }
 
-   listener {
+  listener {
     instance_port      = 8449
     instance_protocol  = "http"
     lb_port            = 8448
