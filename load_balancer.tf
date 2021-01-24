@@ -28,7 +28,7 @@ resource "aws_elb" "beeper-elb" {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     timeout             = 3
-    target              = "HTTP:80/"
+    target              = "HTTP:81/"
     interval            = 30
   }
 
