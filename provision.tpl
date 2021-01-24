@@ -25,3 +25,5 @@ runcmd:
   - [ sh, -c, "git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git" ]
   - [ cd, matrix-docker-ansible-deploy ]
   - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --tags=setup-all" ]
+  - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --tags=start" ]  
+]

@@ -51,3 +51,11 @@ variable "tld" {
 variable "elb_dns" {
   description = "Explicit ELB DNS name, due to cycle error"
 }
+
+variable "dimension_user" {
+  description = "Admin username to access Dimension"
+}
+
+variable "dimension_password" {
+  description = "Admin password to access Dimension"
+}
