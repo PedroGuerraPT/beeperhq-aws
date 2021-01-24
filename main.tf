@@ -4,6 +4,10 @@ resource "aws_instance" "beeper" {
   vpc_security_group_ids      = [aws_security_group.sg_01.id]
   associate_public_ip_address = true
   user_data                   = data.template_file.user_data.rendered
+  root_block_device {
+    delete_on_termination     = false
+    volume_size = 16
+  }
 
   tags = {
     Name = "beeper"
@@ -20,10 +24,4 @@ data "template_file" "user_data" {
   }
 }
 
-output "ec2_dns" {
-  value = aws_instance.beeper.public_dns
-}
 
-output "elb_dns" {
-  value = aws_elb.beeper-elb.dns_name
-}

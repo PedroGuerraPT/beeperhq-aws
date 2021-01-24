@@ -31,7 +31,7 @@ resource "aws_security_group" "sg_01" {
 }
 
 resource "aws_acm_certificate" "elb_cert" {
-  domain_name       = aws_route53_record.matrix.name
+  domain_name       = "*.${ var.tld }"
   validation_method = "DNS"
 
   tags = {

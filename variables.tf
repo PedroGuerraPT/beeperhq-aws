@@ -48,10 +48,6 @@ variable "tld" {
   description = "Top Level Domain (Hosted Zone)"
 }
 
-variable "elb_dns" {
-  description = "Explicit ELB DNS name, due to cycle error"
-}
-
 variable "dimension_user" {
   description = "Admin username to access Dimension"
 }
