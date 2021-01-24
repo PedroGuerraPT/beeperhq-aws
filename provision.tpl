@@ -12,7 +12,7 @@ users:
       - ${ ssh_public_key }
 
 apt_sources:
-  - source: http://ppa.launchpad.net/ansible/ansible-2.8/ubuntu bionic main 
+  - source: "ppa:ansible/ansible-2.8"
 
 package_update: true
 packages:
@@ -20,14 +20,6 @@ packages:
   - dnsutils
   - gawk
   - git
-
-write_files:
-  - path: /etc/environment
-    permissions: 0644
-    content: |
-      BEEPER_DNS=${ beeper_dns }
-      EXTERNAL_IP=$(dig +short ${ beeper_dns } | awk '{ print ; exit }')
-    append: true
 
 runcmd:
   - [ sh, -c, "git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git" ]

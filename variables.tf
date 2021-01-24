@@ -47,3 +47,7 @@ variable "ssh_public_key" {
 variable "tld" {
   description = "Top Level Domain (Hosted Zone)"
 }
+
+variable "ebs_dns" {
+  description = "Explicit ELB DNS name, due to cycle error"
+}

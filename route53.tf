@@ -7,7 +7,7 @@ resource "aws_route53_record" "matrix" {
   name = "matrix.${var.tld}"
   type = "CNAME"
   ttl = "300"
-  records = [aws_elb.beeper-elb.dns_name]
+  records = [ var.ebs_dns ]
 }
 
 resource "aws_route53_record" "matrix-element" {
