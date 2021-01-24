@@ -1,10 +1,4 @@
 #cloud-config
-cloud_config_modules:
-  - runcmd
-
-cloud_final_modules:
-  - scripts-user
-
 users:
   - default
   - name: pedro.guerra
@@ -31,8 +25,8 @@ write_files:
       EXTERNAL_IP=$(dig +short matrix.pguerra.link | awk '{ print ; exit }')
     append: true
 
-runcmd:
-  - [ source  /etc/environment ]
-  - [ git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git ]
-  - [ cd matrix-docker-ansible-deploy ]
-  - [ ansible-playbook -i inventory/hosts setup.yml --tags=setup-all ]
+scripts-user:
+  - sudo source /etc/environment
+  - sudo git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git
+  - sudo cd matrix-docker-ansible-deploy
+  - sudo ansible-playbook -i inventory/hosts setup.yml --tags=setup-all
