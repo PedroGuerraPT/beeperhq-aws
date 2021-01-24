@@ -15,12 +15,20 @@ resource "aws_route53_record" "matrix-element" {
   name = "element.${var.tld}"
   type = "CNAME"
   ttl = "300"
-  records = [aws_elb.beeper-elb.dns_name]
+  records = [ "matrix.${var.tld}" ]
+}
+
+resource "aws_route53_record" "matrix-dimension" {
+  zone_id = aws_route53_zone.dns-zone.zone_id
+  name = "dimension.${var.tld}"
+  type = "CNAME"
+  ttl = "300"
+  records = [ "matrix.${var.tld}" ]
 }
 
 resource "aws_route53_record" "matrix-tcp" {
   name    = "_matrix-identity._tcp"
-  records = ["10 0 443 ${aws_route53_record.matrix.name}"]
+  records = ["10 0 443 matrix.${var.tld}"]
   ttl     = "300"
   type    = "SRV"
   zone_id = aws_route53_zone.dns-zone.zone_id
