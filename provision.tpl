@@ -1,4 +1,6 @@
 #cloud-config
+fqdn: ${ beeper_tld }
+
 users:
   - default
   - name: pedro.guerra
@@ -20,8 +22,10 @@ packages:
   - dnsutils
   - gawk
   - git
+  - python3-pip
 
 runcmd:
+  - [ pip, install, dnspython ]
   - [ sh, -c, "git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git" ]
   - [ cd, matrix-docker-ansible-deploy ]
   - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --tags=setup-all" ]

@@ -6,6 +6,7 @@ resource "aws_elb" "beeper-elb" {
   idle_timeout                = 400
   connection_draining         = true
   connection_draining_timeout = 400
+  security_groups             = [ aws_security_group.sg_lb.id ]
 
   listener {
     instance_port      = 81
@@ -16,9 +17,9 @@ resource "aws_elb" "beeper-elb" {
   }
 
   listener {
-    instance_port      = 8449
+    instance_port      = 8448
     instance_protocol  = "http"
-    lb_port            = 8448
+    lb_port            = 8449
     lb_protocol        = "https"
     ssl_certificate_id = aws_acm_certificate.elb_cert.id
   }
@@ -27,7 +28,7 @@ resource "aws_elb" "beeper-elb" {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     timeout             = 3
-    target              = "HTTP:81/"
+    target              = "HTTP:80/"
     interval            = 30
   }
 

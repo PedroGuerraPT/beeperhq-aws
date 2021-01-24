@@ -32,12 +32,16 @@ variable "server_stop" {
   description = "CRON Expression to stop the server"
 }
 
-variable "tcp_service_ports" {
+variable "instance_tcp_service_ports" {
   description = "TCP ports required by beeper"
 }
 
-variable "udp_service_ports" {
+variable "instance_udp_service_ports" {
   description = "TCP ports required by beeper"
+}
+
+variable "lb_tcp_service_ports" {
+  description = "TCP ports required by load balancer"
 }
 
 variable "ssh_public_key" {
