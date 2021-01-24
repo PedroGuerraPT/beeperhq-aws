@@ -1,6 +1,5 @@
 resource "aws_security_group" "sg_01" {
   name   = "sg_01"
-  vpc_id = aws_vpc.vpc.id
 
 
   dynamic "ingress" {

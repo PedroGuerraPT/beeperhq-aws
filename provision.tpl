@@ -15,7 +15,7 @@ users:
     ssh_import_id:
     lock_passwd: false
     ssh_authorized_keys:
-      - { private_key }
+      - ${ ssh_public_key }
 
 package_update: true
 packages:
@@ -32,5 +32,7 @@ write_files:
     append: true
 
 runcmd:
-  - [ git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git && cd matrix-docker-ansible-deploy ]
+  - [ source  /etc/environment ]
+  - [ git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git ]
+  - [ cd matrix-docker-ansible-deploy ]
   - [ ansible-playbook -i inventory/hosts setup.yml --tags=setup-all ]
