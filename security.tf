@@ -1,7 +1,6 @@
 resource "aws_security_group" "sg_01" {
   name   = "sg_01"
 
-
   dynamic "ingress" {
     for_each = var.tcp_service_ports
     content {

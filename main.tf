@@ -5,7 +5,6 @@ resource "aws_instance" "beeper" {
   associate_public_ip_address = true
   user_data                   = data.template_file.user_data.rendered
   root_block_device {
-    delete_on_termination     = false
     volume_size = 16
   }
 
