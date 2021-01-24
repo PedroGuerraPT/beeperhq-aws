@@ -48,6 +48,6 @@ variable "tld" {
   description = "Top Level Domain (Hosted Zone)"
 }
 
-variable "ebs_dns" {
+variable "elb_dns" {
   description = "Explicit ELB DNS name, due to cycle error"
 }
