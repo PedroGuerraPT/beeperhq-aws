@@ -18,8 +18,8 @@ data "template_file" "user_data" {
   vars = {
     "beeper_tld"          = var.tld
     "ssh_public_key"      = var.ssh_public_key
-    "dimension_user"      = var.dimension_user
-    "dimension_password"  = var.dimension_password
+    "element_user"        = var.element_user
+    "element_password"    = var.element_password
   }
 }
 

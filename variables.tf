@@ -49,10 +49,14 @@ variable "tld" {
   description = "Top Level Domain (Hosted Zone)"
 }
 
-variable "dimension_user" {
-  description = "Admin username to access Dimension"
+variable "element_user" {
+  description = "Admin username to access Element"
 }
 
-variable "dimension_password" {
-  description = "Admin password to access Dimension"
+variable "element_password" {
+  description = "Admin password to access Element"
+}
+
+variable "lets_encrypt_support_email" {
+  description = "Let's Encrypt support email address"
 }

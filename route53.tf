@@ -10,7 +10,15 @@ resource "aws_route53_record" "root-tld" {
   records = [ aws_instance.beeper.public_ip ]
 }
 
-resource "aws_route53_record" "matrix-element" {
+resource "aws_route53_record" "matrix" {
+  zone_id = aws_route53_zone.dns-zone.zone_id
+  name = "matrix.${var.tld}"
+  type = "A"
+  ttl = "300"
+  records = [ aws_instance.beeper.public_ip ]
+}
+
+resource "aws_route53_record" "element" {
   zone_id = aws_route53_zone.dns-zone.zone_id
   name = "element.${var.tld}"
   type = "CNAME"
@@ -18,7 +26,7 @@ resource "aws_route53_record" "matrix-element" {
   records = [ "matrix.${var.tld}" ]
 }
 
-resource "aws_route53_record" "matrix-dimension" {
+resource "aws_route53_record" "dimension" {
   zone_id = aws_route53_zone.dns-zone.zone_id
   name = "dimension.${var.tld}"
   type = "CNAME"
