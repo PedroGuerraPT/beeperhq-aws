@@ -28,37 +28,3 @@ resource "aws_security_group" "sg_instance" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-resource "aws_security_group" "sg_lb" {
-  name   = "sg_lb"
-
-  dynamic "ingress" {
-    for_each = var.lb_tcp_service_ports
-    content {
-      from_port = ingress.value
-      to_port   = ingress.value
-      protocol  = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
-resource "aws_acm_certificate" "elb_cert" {
-  domain_name       = "*.${ var.tld }"
-  validation_method = "DNS"
-
-  tags = {
-    Environment = var.environment_tag
-  }
-
-  lifecycle {
-    create_before_destroy = true
-  }
-}

@@ -40,9 +40,6 @@ variable "instance_udp_service_ports" {
   description = "TCP ports required by beeper"
 }
 
-variable "lb_tcp_service_ports" {
-  description = "TCP ports required by load balancer"
-}
 
 variable "ssh_public_key" {
   description = "Public SSH key to access the EC2 instance"
