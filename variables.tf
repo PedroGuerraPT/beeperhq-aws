@@ -60,3 +60,11 @@ variable "element_password" {
 variable "lets_encrypt_support_email" {
   description = "Let's Encrypt support email address"
 }
+
+variable "ec2_access_key" {
+  description = "AWS Access Key for EC2 SSM"
+}
+
+variable "ec2_secret_key" {
+  description = "AWS Secret Key for EC2 SSM"
+}
