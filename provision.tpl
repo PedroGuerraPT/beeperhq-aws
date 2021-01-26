@@ -22,13 +22,12 @@ packages:
   - dnsutils
   - gawk
   - git
-  - python3-pip
+  - python-pip
 
 runcmd:
-  - [ pip, install, dnspython ]
+  - [ pip, install, dnspython, boto, boto3, botocore, docker ]
   - [ sh, -c, "git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git" ]
   - [ cd, matrix-docker-ansible-deploy ]
-  - [ sh, -c, "ansible-galaxy collection install amazon.aws"]
   - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --tags=setup-all" ]
   - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --tags=start" ]
   - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --extra-vars='username=${ element_user } password=${ element_password } admin=yes' --tags=register-user" ]
