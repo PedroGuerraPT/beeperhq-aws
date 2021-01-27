@@ -14,7 +14,7 @@ users:
       - ${ ssh_public_key }
 
 apt_sources:
-  - source: "ppa:ansible/ansible-2.8"
+  - source: "ppa:ansible/ansible-2.9"
 
 package_update: true
 packages:
@@ -28,6 +28,7 @@ runcmd:
   - [ pip, install, dnspython, boto, boto3, botocore, docker ]
   - [ sh, -c, "git clone https://github.com/PedroGuerraPT/matrix-docker-ansible-deploy.git" ]
   - [ cd, matrix-docker-ansible-deploy ]
+  - [ sh, -c, "ansible-galaxy collection install community.aws"]
   - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --tags=setup-all" ]
   - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --tags=start" ]
   - [ sh, -c, "ansible-playbook -i inventory/hosts setup.yml --extra-vars='username=${ element_user } password=${ element_password } admin=yes' --tags=register-user" ]
