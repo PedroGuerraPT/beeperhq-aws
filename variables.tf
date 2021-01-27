@@ -2,14 +2,6 @@ variable "ami" {
   description = ""
 }
 
-variable "ec2_access_key" {
-  description = ""
-}
-
-variable "ec2_secret_key" {
-  description = ""
-}
-
 variable "element_password" {
   description = ""
 }

@@ -1,21 +1,3 @@
-resource "aws_ssm_parameter" "ec2_secret_key" {
-  name  = "EC2_SECRET_KEY"
-  type  = "SecureString"
-  value = var.ec2_secret_key
-}
-
-resource "aws_ssm_parameter" "ec2_access_key" {
-  name  = "EC2_ACCESS_KEY"
-  type  = "SecureString"
-  value = var.ec2_access_key
-}
-
-resource "aws_ssm_parameter" "ec2_region" {
-  name  = "EC2_REGION"
-  type  = "String"
-  value = var.region
-}
-
 resource "aws_ssm_parameter" "matrix_coturn_turn_static_auth_secret" {
   name  = "matrix_coturn_turn_static_auth_secret"
   type  = "SecureString"
