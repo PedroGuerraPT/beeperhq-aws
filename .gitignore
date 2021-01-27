@@ -1,6 +1,7 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/terraform,ssh
 # Edit at https://www.toptal.com/developers/gitignore?templates=terraform,ssh
+git-crypt.exe
 
 ### SSH ###
 **/.ssh/id_*
