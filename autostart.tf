@@ -6,7 +6,7 @@ module "start_ec2_instance" {
   autoscaling_schedule           = "false"
   ec2_schedule                   = "true"
   rds_schedule                   = "false"
-  resources_tag                  = {
+  resources_tag = {
     key   = "tostop"
     value = "true"
   }
@@ -20,7 +20,7 @@ module "stop_ec2_instance" {
   autoscaling_schedule           = "false"
   ec2_schedule                   = "true"
   rds_schedule                   = "false"
-  resources_tag                  = {
+  resources_tag = {
     key   = "tostop"
     value = "true"
   }

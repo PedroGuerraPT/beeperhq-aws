@@ -76,7 +76,7 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 }
 
 resource "aws_iam_role" "secrets_role" {
-  name = "secrets_role"
+  name               = "secrets_role"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -104,7 +104,7 @@ resource "aws_iam_role_policy_attachment" "policy-attach" {
 }
 
 resource "aws_iam_policy" "secrets_policy" {
-  name = "secrets_policy"
+  name        = "secrets_policy"
   description = "Secrets Policy"
 
   policy = <<-EOF
