@@ -1,3 +1,3 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-terraform.tfvars filter=git-crypt diff=git-crypt
+encrypted.tfvars filter=git-crypt diff=git-crypt
